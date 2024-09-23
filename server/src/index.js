@@ -17,9 +17,15 @@ dotenv.config({
 })
 
 app.use(cors({
-    origin: "https://task-m-frontend-bay.vercel.app",
+    origin: "https://task-m-frontend-bay.vercel.app", // The exact frontend URL
     credentials: true,
-}));
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
+  }));
+  
+  // Handle preflight requests
+  app.options('*', cors());
+  
 
 const options = {
     httpOnly: true,
