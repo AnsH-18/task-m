@@ -16,17 +16,14 @@ dotenv.config({
     path: "./.env"
 })
 
-app.use(cors())
-
-// app.use(cors({
-//     origin: "https://task-m-frontend-bay.vercel.app", // The exact frontend URL
-//     credentials: true,
-//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-//     allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
-//   }));
+app.use(cors({
+    // origin: "https://task-m-frontend-bay.vercel.app", // The exact frontend URL
+    origin: "*",
+    credentials: true,
+  }));
   
   // Handle preflight requests
-//   app.options('*', cors());
+  app.options('*', cors());
   
 
 const options = {
