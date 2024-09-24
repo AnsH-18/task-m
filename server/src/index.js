@@ -17,8 +17,8 @@ dotenv.config({
 })
 
 app.use(cors({
-    // origin: "https://task-m-frontend-bay.vercel.app", // The exact frontend URL
-    origin: "*",
+    origin: "https://task-m-frontend-bay.vercel.app", // The exact frontend URL
+    // origin: "*",
     credentials: true,
   }));
   
