@@ -18,14 +18,15 @@ dotenv.config({
 
 app.use(cors({
     origin: "https://task-m-frontend-bay.vercel.app", // The exact frontend URL
-    // origin: "*",
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
     credentials: true,
   }));
-  
-  // Handle preflight requests
-  app.options('*', cors());
+
+
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://task-m-frontend-bay.vercel.app"); // Update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
   
 
 const options = {
