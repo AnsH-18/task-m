@@ -16,10 +16,12 @@ dotenv.config({
     path: "./.env"
 })
 
-app.use(cors({
-    origin: "https://task-m-frontend-bay.vercel.app", // The exact frontend URL
-    credentials: true,
-  }));
+// app.use(cors({
+//     origin: "https://task-m-frontend-bay.vercel.app", // The exact frontend URL
+//     credentials: true,
+//   }));
+
+app.use(cors())
 
 
   app.use((req, res, next) => {
